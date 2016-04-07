@@ -5,22 +5,18 @@
 //  Copyright © 2016年 zeacone. All rights reserved.
 //
 
-#import "FXLRUCache.h"
+#import "FXLRUMemoryCache.h"
 
 const NSInteger CacheCapacity = 40;
 
-@implementation LRUCacheNode
+@implementation FXLRUMemoryCache
 
-@end
-
-@implementation FXLRUCache
-
-+ (FXLRUCache *)defaultCache {
++ (FXLRUMemoryCache *)defaultMemoryCache {
     
-    static FXLRUCache *cache = nil;
+    static FXLRUMemoryCache *cache = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        cache = [FXLRUCache new];
+        cache = [FXLRUMemoryCache new];
         [cache initialConfig];
     });
     return cache;
