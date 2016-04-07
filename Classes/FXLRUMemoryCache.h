@@ -6,17 +6,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LRUCacheNode.h"
 
-@interface LRUCacheNode : NSObject
-
-@property (nonatomic, copy) NSString *key;
-@property (nonatomic, copy) NSString *value;
-@property (nonatomic, strong) LRUCacheNode *prev;
-@property (nonatomic, strong) LRUCacheNode *next;
-
-@end
-
-@interface FXLRUCache : NSObject
+@interface FXLRUMemoryCache : NSObject
 
 /**
  *  用以存放缓存数据的可变字典
@@ -51,7 +43,7 @@
  *
  *  @return 返回缓存的单例
  */
-+ (FXLRUCache *)defaultCache;
++ (FXLRUMemoryCache *)defaultMemoryCache;
 
 /**
  *  获取缓存
