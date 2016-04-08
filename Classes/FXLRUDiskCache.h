@@ -8,9 +8,15 @@
 #import <Foundation/Foundation.h>
 #import "LRUCacheNode.h"
 
+typedef NS_ENUM(NSUInteger, DiskCacheType) {
+    DiskCacheTypeFileCache,
+    DiskCacheTypeSQLiteCache,
+    DiskCacheTypeNmapCache,
+};
+
 @interface FXLRUDiskCache : NSObject
 
-@property (nonatomic, strong) NSMutableDictionary *caches;
+@property (nonatomic, assign) DiskCacheType cacheType;
 
 @property (nonatomic, strong) LRUCacheNode *head;
 

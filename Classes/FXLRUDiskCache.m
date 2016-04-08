@@ -35,6 +35,7 @@ const NSInteger CacheCapacity = 100;
     self.capacity = CacheCapacity;
     self.count = 0;
     
+    self.cacheType = DiskCacheTypeFileCache;
     // 磁盘缓存使用SQLite来进行存储，周末再写。
 }
 
